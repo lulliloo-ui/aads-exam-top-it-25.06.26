@@ -17,9 +17,9 @@ namespace madieva {
 
   size_t getSize(const PersonArray & arr) noexcept;
 
-  Person& at(PersonArray & arr, size_t index);
+  Person & at(PersonArray & arr, size_t index);
 
-  const Person& at(const PersonArray & arr, size_t index);
+  const Person & at(const PersonArray & arr, size_t index);
 }
 
 #endif
