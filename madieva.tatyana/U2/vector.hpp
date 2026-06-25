@@ -29,6 +29,8 @@ namespace madieva {
   size_t getSize(const PersonArray & arr) noexcept;
   Person & at(PersonArray & arr, size_t index);
   const Person & at(const PersonArray & arr, size_t index);
+  std::size_t findById(const PersonArray& arr, std::size_t id);
+  void removeAt(PersonArray& arr, std::size_t index);
 
   MeetArray createMeetArray();
   void destroyArray(MeetArray& arr) noexcept;
