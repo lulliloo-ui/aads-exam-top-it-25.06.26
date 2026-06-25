@@ -88,7 +88,7 @@ int main(int argc, char * argv[])
   } catch (const std::invalid_argument& e) {
     madieva::destroyArray(persons);
     std::cerr << e.what() << "\n";
-    if (std::string(e.what()) == "too_many_args") {
+    if (std::string(e.what()) == "too many args") {
       return 0;
     }
     return 2;
