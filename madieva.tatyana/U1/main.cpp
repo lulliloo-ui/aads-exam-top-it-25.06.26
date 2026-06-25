@@ -88,9 +88,9 @@ int main(int argc, char * argv[])
     return 0;
   } catch (const std::invalid_argument& e) {
     std::cerr << e.what() << "\n";
-    return 2;
+    return 0;
   } catch (const std::bad_alloc&) {
     std::cerr << "out of memory" << "\n";
-    return 0;
+    return 2;
   }
 }
