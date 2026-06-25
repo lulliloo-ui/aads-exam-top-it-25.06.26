@@ -7,6 +7,7 @@
 
 int main(int argc, char * argv[])
 {
+  madieva::PersonArray persons = madieva::createArray();
   try {
     madieva::Config config = madieva::parseArgs(argc, argv);
 
@@ -19,7 +20,6 @@ int main(int argc, char * argv[])
       }
       inStream = &inFile;
     }
-    madieva::PersonArray persons = madieva::createArray();
     std::size_t successCount = 0;
     std::size_t ignoredCount = 0;
     std::string line;
@@ -87,10 +87,16 @@ int main(int argc, char * argv[])
     madieva::destroyArray(persons);
     return 0;
   } catch (const std::invalid_argument& e) {
+    madieva::destroyArray(persons);
     std::cerr << e.what() << "\n";
     return 0;
   } catch (const std::bad_alloc&) {
+    madieva::destroyArray(persons);
     std::cerr << "out of memory" << "\n";
     return 2;
+  } catch (...) {
+    madieva::destroyArray(persons);
+    std::cerr << "unknown error" << "\n";
+    return 1;
   }
 }
