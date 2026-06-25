@@ -19,20 +19,24 @@ namespace madieva {
 
   void pushBack(PersonArray & arr, const Person & person) {
     if (arr.size_ == arr.capacity_) {
-      size_t new_capacity = (arr.capacity_ == 0) ? 1 : arr.capacity_ * 2;
-      Person* new_data = new Person[new_capacity];
+    size_t new_capacity = (arr.capacity_ == 0) ? 1 : arr.capacity_ * 2;
+    Person* new_data = new Person[new_capacity];
 
+    try {
       for (size_t i = 0; i < arr.size_; ++i) {
         new_data[i] = arr.data_[i];
       }
-
-      delete[] arr.data_;
-      arr.data_ = new_data;
-      arr.capacity_ = new_capacity;
+    } catch (...) {
+      delete[] new_data;
+      throw;
     }
+    delete[] arr.data_;
+    arr.data_ = new_data;
+    arr.capacity_ = new_capacity;
+  }
 
-    arr.data_[arr.size_] = person;
-    ++arr.size_;
+  arr.data_[arr.size_] = person;
+  ++arr.size_;
   }
 
   size_t getSize(const PersonArray & arr) noexcept {

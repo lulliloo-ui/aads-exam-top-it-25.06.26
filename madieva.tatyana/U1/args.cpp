@@ -6,7 +6,7 @@ namespace madieva {
 
   namespace {
 
-    bool startsWith(const std::string& str, const char* prefix) {
+    bool startsWith(const std::string & str, const char * prefix) {
       std::size_t prefixLen = std::strlen(prefix);
       if (str.size() < prefixLen) {
         return false;
@@ -16,7 +16,7 @@ namespace madieva {
 
   }
 
-  Config parseArgs(int argc, char* argv[]) {
+  Config parseArgs(int argc, char * argv[]) {
     if (argc > 3) {
       throw std::invalid_argument("too many arguments");
     }
