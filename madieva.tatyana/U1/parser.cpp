@@ -15,7 +15,7 @@ bool madieva::parseLine(const std::string& line, Person& person) {
 
   std::size_t pos = 0;
   while (pos < line.size() && !std::isspace(static_cast< unsigned char >(line[pos]))) {
-    unsigned char c = static_cast<unsigned char>(line[pos]);
+    unsigned char c = static_cast< unsigned char >(line[pos]);
     if (!std::isdigit(c)) {
       return false;
     }
@@ -27,7 +27,7 @@ bool madieva::parseLine(const std::string& line, Person& person) {
   }
 
   for (std::size_t i = 0; i < pos; ++i) {
-    person.id_ = person.id_ * 10 + (static_cast<unsigned char>(line[i]) - '0');
+    person.id_ = person.id_ * 10 + (static_cast< unsigned char >(line[i]) - '0');
   }
 
   std::size_t info_start = pos;

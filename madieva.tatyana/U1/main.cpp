@@ -77,15 +77,19 @@ int main(int argc, char * argv[])
       *outStream << p.id_ << " " << p.info_ << "\n";
     }
 
-    std::cerr << successCount << " " << ignoredCount << std::endl;
+    if (successCount == 0 && ignoredCount == 0) {
+      std::cerr << "\n";
+    }
+
+    std::cerr << successCount << " " << ignoredCount << "\n";
 
     madieva::destroyArray(persons);
     return 0;
   } catch (const std::invalid_argument& e) {
-    std::cerr << e.what() << std::endl;
-    return 1;
+    std::cerr << e.what() << "\n";
+    return 2;
   } catch (const std::bad_alloc&) {
-    std::cerr << "out of memory" << std::endl;
+    std::cerr << "out of memory" << "\n";
     return 2;
   }
 }
